@@ -1,0 +1,24 @@
+name: evalrs-cikm-2022
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: EvalRS-CIKM-2022 submission exaple
+template:
+  config:
+    aws:region:
+      description: The AWS region to deploy into
+      default: us-east-1
+      secret: false
+    ec2_image_name:
+      default: "Deep Learning AMI GPU PyTorch 1.12.0 (Amazon Linux 2)*"
+      description: "Image name to use"
+      secret: false
+    ec2_instance_type:
+      default: "p3.2xlarge"
+      description: "Instance type to initialize"
+      secret: false
+    ec2_username:
+      default: "ec2-user"
+      description: "Instance default username"
+      secret: false
