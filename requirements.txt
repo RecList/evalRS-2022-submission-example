@@ -1,4 +1,8 @@
-pulumi==3.38.0
-pulumi-aws==5.11.0
-pulumi-awsx==1.0.0.b10
-pulumi-command==0.4.1
+python-dotenv==0.20.0
+boto3==1.24.34
+git+https://github.com/jacopotagliabue/reclist@develop
+tensorflow>=2.8
+git+https://github.com/NVIDIA-Merlin/core
+merlin-models
+nvtabular==1.2.2
+numpy==1.22
