@@ -15,7 +15,7 @@ For the rules and guidelines on the compute budget and the target machine, pleas
 
 This is a WIP. Come back often for updates!
 
-## Project description (as if this was a submission!)
+## Project description (as if this was a real submission!)
 
 ### Introduction
 
@@ -25,12 +25,13 @@ This is the submission of team ACME to the [EvalRS Data Challenge](https://githu
 
 _Preliminaries_
 
-* Important: make sure you are running TF 2.9 (it is in the requirements, but please make sure!)
+* Launch an Amazon Deep Learning AMI _Tensorflow image_.
+* Install the packages in the `requirements.txt` file in the ready-made TF interpreter.
+* Important: make sure you are running TF 2.9 (it is in the requirements, but please make sure!).
 
 _Custom test_
 
-* The class `myRecList(EvalRSRecList)`
-
+* As requested by the rules, we submit a custom test together with the ones in the original RecList. In particular, the class `myRecList(EvalRSRecList)` contains our custom test, which is also described in our short paper.
 
 ### License (remember, needs to be an open soure license!)
 
@@ -56,9 +57,9 @@ Once you have your account, follow these steps:
 
 * Please note that if you use a DL AMI the console will tell when the [DL-ready interpreter is](images/ec2.png). Make sure to use that to then launch your submission in the usual way, that is, in this case `/usr/local/bin/python3.9 submission.py`: [video](https://watch.screencastify.com/v/nDFJMcUcBb1dBTFrwcjH).
 
-* When the eval loop has completed, you should see the usual [console log](images/results.png), including the duration. Please note _that duration should be less than the computing budget_!
+* When the eval loop has completed, you should see the usual [console log](images/results.png), including the duration of the loop. Please note _that the total duration should be less than the computing budget specified in the official rules_!
 
-* When you're sure your compute budget tests have succeded, _shut down_ the machine to avoid incurring in additional costs!
+* When you're sure your compute budget tests have succeded, _shut down_ the EC2 machine to avoid incurring in additional costs!
 
 #### FAQs
 
