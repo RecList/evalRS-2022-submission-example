@@ -34,7 +34,7 @@ if __name__ == '__main__':
     print('\n\n==== Starting evaluation script at: {} ====\n'.format(datetime.utcnow()))
     # load the dataset
     print('\n\n==== Loading dataset at: {} ====\n'.format(datetime.utcnow()))
-    dataset = ChallengeDataset()
+    dataset = ChallengeDataset(force_download=True)
     print('\n\n==== Init runner at: {} ====\n'.format(datetime.utcnow()))
     # run the evaluation loop
     runner = EvalRSRunner(
