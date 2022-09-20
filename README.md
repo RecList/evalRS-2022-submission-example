@@ -56,7 +56,7 @@ Once you have your account, follow these steps:
 
 * Please note that if you use a DL AMI the console will tell when the [DL-ready interpreter is](images/ec2.png). Make sure to use that to then launch your submission in the usual way, that is, in this case `/usr/local/bin/python3.9 submission.py`: [video](https://watch.screencastify.com/v/nDFJMcUcBb1dBTFrwcjH).
 
-* When the eval loop has completed, you should see the usual console log LINK.
+* When the eval loop has completed, you should see the usual [console log](images/results.png), including the duration. Please note _that duration should be less than the computing budget_!
 
 * When you're sure your compute budget tests have succeded, _shut down_ the machine to avoid incurring in additional costs!
 
