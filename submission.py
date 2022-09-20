@@ -27,6 +27,8 @@ AWS_SECRET_KEY = os.getenv('AWS_SECRET_KEY')
 if __name__ == '__main__':
     # import the basic classes
     from evaluation.EvalRSRunner import EvalRSRunner
+    # import my custom recList, containing the custom test
+    from evaluation.EvalRSRecList import myRecList
     from evaluation.EvalRSRunner import ChallengeDataset
     from submission.MyModel import MyMFModel
     print('\n\n==== Starting evaluation script at: {} ====\n'.format(datetime.utcnow()))
@@ -62,6 +64,7 @@ if __name__ == '__main__':
     )
     # run evaluation with your model
     runner.evaluate(
-        model=my_model
+        model=my_model,
+        custom_RecList=myRecList # pass my custom reclist to the runner!
         )
     print('\n\n==== Evaluation ended at: {} ===='.format(datetime.utcnow()))

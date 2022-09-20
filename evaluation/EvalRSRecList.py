@@ -5,10 +5,8 @@
 
     While you should not modify this class, your submission should contain a class extending "EvalRSRecList"
     with custom tests that you found useful to debug the behavior of your model, or check for 
-    regression errors in test cases you care about (check the README and notebooks for more details)
-
-    You're free to experiment with the dataset, and share your insightful work as operationalized in RecTests with
-    the community!
+    regression errors in test cases you care about - see the example at the end for a syntactically correct
+    (but useless) custom test.
 
 """
 import numpy as np
@@ -188,4 +186,21 @@ class EvalRSDataset(RecDataset):
         self._catalog = {
             'users': kwargs.get('users'),
             'items': kwargs.get('items')
+        }
+
+
+# this is my custom recList, which contains an additional test, as required by the 
+# submission rules
+
+class myRecList(EvalRSRecList):
+    
+    @rec_test(test_type='custom_test')
+    def lucky_user_test(self):
+        """
+        Custom test, returning my lucky user from the catalog
+        """
+        from random import choice
+
+        return {
+          "luck_user": str(choice(self._x_test['user_id'].unique())) 
         }
