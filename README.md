@@ -13,6 +13,8 @@ This repository contains an easy to understand fake submission to the [EvalRS Da
 
 For the rules and guidelines on the compute budget and the target machine, please check the official [rules](https://github.com/RecList/evalRS-CIKM-2022).
 
+Please note that the `images` and `pulumi` folders are for the walkthrough below, but are not part of the "example submission" (so we won't expect them to be in your project).
+
 This is a WIP. Come back often for updates!
 
 ## Project description (as if this was a real submission!)
@@ -55,7 +57,7 @@ Once you have your account, follow these steps:
 
 * Connect to the instance, clone your submission repo from Github (in this example, it is this very repo: `git clone https://github.com/RecList/evalRS-2022-submission-example`), and execute whatever preliminary steps you need. For example, make sure to install the dependencies and to create a `upload.env` file with your credentials (NOT SHOWN in the videos)).
 
-* Please note that if you use a DL AMI the console will tell when the [DL-ready interpreter is](images/ec2.png). Make sure to use that to then launch your submission in the usual way, that is, in this case `/usr/local/bin/python3.9 submission.py`: [video](https://watch.screencastify.com/v/nDFJMcUcBb1dBTFrwcjH).
+* Please note that when you use a DL AMI, the console will tell where the [DL-ready interpreter is](images/ec2.png). Make sure to use _that Python_ to launch your submission in the usual way, that is, in this case `/usr/local/bin/python3.9 submission.py`: [video](https://watch.screencastify.com/v/nDFJMcUcBb1dBTFrwcjH).
 
 * When the eval loop has completed, you should see the usual [console log](images/results.png), including the duration of the loop. Please note _that the total duration should be less than the computing budget specified in the official rules_!
 
@@ -63,7 +65,9 @@ Once you have your account, follow these steps:
 
 #### FAQs
 
-* _When I launch the `p3` machine, AWS says that I have a limit on the instance_. This may happen if this is your first AWS account: you need to follow the instructions on AWS console and open a ticket for them to unlock those machines for you, which are outside the free tier. Since it may take a while for them to do so, please try out this tutorial as soon as possible to make sure you have the setup ready for running your submission checks!
+* _When I launch the `p3` machine, AWS says that I have reached a limit on the instances_. This may happen if this is your first AWS account: you need to follow the instructions on AWS console and open a ticket for them to unlock those machines for you, which are outside the free tier. Since it may take a while for them to do so, please try out this tutorial as soon as possible to make sure you have the setup ready for running your submission checks!
+
+* _What if I'm using a GPU-enabled Colab?_ The target machine has a V100, and known hardware parameters - for fairness to all participants, we *need* to pick a target machine and use it as the standard for measuring whether or not you are within the allowed computing budget. In general, a good rule of thumb is that if you run your submission within the budget on a less powerful machine, that _should_ run on the target machine as well - however, we strongly suggest to try and run at least once on a real `p3` machine, to make sure you won't get disqualified.
 
 ### Pulumi Setup
 
