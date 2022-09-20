@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 
 upload.env
+
+.DS_Store
