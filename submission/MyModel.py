@@ -308,6 +308,7 @@ class MyMFModel(MyRetrievalModel):
     
     def get_model(self):      
         item_retrieval_task = self.get_item_retrieval_task()
+        print("Items Retrieved!")
         model = mm.MatrixFactorizationModel(
             self.schema,
             dim=self.hparams['mf_dim'],

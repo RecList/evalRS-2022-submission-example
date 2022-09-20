@@ -50,7 +50,7 @@ if __name__ == '__main__':
         items_df=dataset.df_tracks,
         users_df=dataset.df_users,
         # Training hparams
-        epochs=5,
+        epochs=1,
         train_batch_size=8192,
         lr=1e-3,
         lr_decay_steps=100,
