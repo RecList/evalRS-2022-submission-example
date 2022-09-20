@@ -30,7 +30,7 @@ if __name__ == '__main__':
     # import my custom recList, containing the custom test
     from evaluation.EvalRSRecList import myRecList
     from evaluation.EvalRSRunner import ChallengeDataset
-    from submission.MyModel import MyMFModel
+    from submission.MyModel import MyTwoTowerModel
     print('\n\n==== Starting evaluation script at: {} ====\n'.format(datetime.utcnow()))
     # load the dataset
     print('\n\n==== Loading dataset at: {} ====\n'.format(datetime.utcnow()))
@@ -46,21 +46,27 @@ if __name__ == '__main__':
         email=EMAIL
         )
     print('==== Runner loaded, starting loop at: {} ====\n'.format(datetime.utcnow()))
-    my_model = MyMFModel(
+    tt_model = MyTwoTowerModel(
         items_df=dataset.df_tracks,
         users_df=dataset.df_users,
+        
         # Training hparams
-        epochs=1,
+        epochs=5,
         train_batch_size=8192,
         lr=1e-3,
         lr_decay_steps=100,
         lr_decay_rate=0.96,
         label_smoothing=0.0,
+        
         # Model hparams
         logq_correction_factor=1.0,
-        embeddings_l2_reg=5e-6,
+        embeddings_l2_reg=1e-5,
         logits_temperature=1.8,
-        mf_dim=128,
+        tt_mlp_layers=[128,64],
+        tt_mlp_activation="relu",
+        tt_mlp_dropout=0.3,
+        tt_mlp_l2_reg=5e-5,
+        tt_infer_embedding_sizes_multiplier=2.0
     )
     # run evaluation with your model
     runner.evaluate(

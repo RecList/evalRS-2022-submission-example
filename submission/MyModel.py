@@ -304,16 +304,27 @@ class MyRetrievalModel(RecModel):
         return raw_topk_predicted_item_ids
 
 
-class MyMFModel(MyRetrievalModel):
+class MyTwoTowerModel(MyRetrievalModel):
     
-    def get_model(self):      
+    def get_model(self):   
         item_retrieval_task = self.get_item_retrieval_task()
-        print("Items Retrieved!")
-        model = mm.MatrixFactorizationModel(
-            self.schema,
-            dim=self.hparams['mf_dim'],
-            prediction_tasks=item_retrieval_task,
-            embeddings_l2_reg=self.hparams['embeddings_l2_reg']
-        )
         
+        model = mm.TwoTowerModel(
+            self.schema,
+            query_tower=mm.MLPBlock(
+                self.hparams['tt_mlp_layers'],
+                activation=self.hparams['tt_mlp_activation'],
+                no_activation_last_layer=True,    
+                dropout=self.hparams['tt_mlp_dropout'],                
+                kernel_regularizer=regularizers.l2(self.hparams['tt_mlp_l2_reg']),
+                bias_regularizer=regularizers.l2(self.hparams['tt_mlp_l2_reg']),
+            ),
+            embedding_options=mm.EmbeddingOptions(
+                infer_embedding_sizes=True,
+                infer_embedding_sizes_multiplier=self.hparams['tt_infer_embedding_sizes_multiplier'],
+                embeddings_l2_reg=self.hparams['embeddings_l2_reg'],
+            ),
+            prediction_tasks=item_retrieval_task
+        )
+
         return model
