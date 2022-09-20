@@ -25,8 +25,11 @@ This is the submission of team ACME to the [EvalRS Data Challenge](https://githu
 
 _Preliminaries_
 
+* Important: make sure you are running TF 2.9 (it is in the requirements, but please make sure!)
 
 _Custom test_
+
+* The class `myRecList(EvalRSRecList)`
 
 
 ### License (remember, needs to be an open soure license!)

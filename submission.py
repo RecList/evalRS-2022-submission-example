@@ -46,7 +46,7 @@ if __name__ == '__main__':
         email=EMAIL
         )
     print('==== Runner loaded, starting loop at: {} ====\n'.format(datetime.utcnow()))
-    tt_model = MyTwoTowerModel(
+    my_model = MyTwoTowerModel(
         items_df=dataset.df_tracks,
         users_df=dataset.df_users,
         
