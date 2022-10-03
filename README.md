@@ -71,4 +71,6 @@ Once you have your account, follow these steps:
 
 ### Pulumi Setup
 
-WIP
+For practitioners familiar with "Infrastructure-as-code" and current users of [Pulumi](https://www.pulumi.com/), we also prepared in the `pulumi` folder a minimal script to automatically provision the EC2 infrastructure, instead of manually building it out as described in the walkthrough above. Please note that while the script has been tested, it is provided "as is": if you want to modify / improve / contribute, please do. 
+
+There is *no* requirement for your final submission to include any infrastructure code: your submission should only be a self-contained, documented project that can be run with no changes on the target machine (as exemplified by this repository). Thanks to [Luca](https://github.com/bigluck) for the Pulumi example.
